@@ -13,15 +13,20 @@ class PreProcessed:
 
     def loadnview(self, loadpath):
         sample = au.get_samplerate(loadpath)
-        loaded = au.load(loadpath, sr=sample, mono=True)  # we gotta try this with a supported audio type
-        # audio becomes flaot 32 but not a numpy float 32 array, weird
+        # we gotta try this with a supported audio type - try converting to a SoundFile supported codec
+        # Then feed to function
+        loaded = au.load(loadpath, sr=sample, mono=True)
+        # audio becomes float 32 but not a numpy float 32 array, weird
 
         # call a member function to process signal here - we skip here to check we can see data
 
-        # disp.waveshow(loaded, sr=sample)
+        disp.waveshow(loaded, sr=sample)
         print(loaded)  # dev print line
 
 
 inputpath = input('Input audio path: ')  # note to self: get rid of quotation marks when entering path
 viewTest = PreProcessed()
 viewTest.loadnview(inputpath)
+
+# input test file - C:\Users\Ben\Downloads\Car.mp3
+# current output - (array([], dtype=float32), 48000)

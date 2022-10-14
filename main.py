@@ -20,6 +20,8 @@ class PreProcessed:
 
         # call a member function to process signal here - we skip here to check we can see data
 
+        # CHECK WITH A LONGER PIECE OF AUDIO, MAYBE THIS CLIP TOO SHORT?
+
         disp.waveshow(loaded, sr=sample)
         print(loaded)  # dev print line
 
@@ -29,4 +31,4 @@ viewTest = PreProcessed()
 viewTest.loadnview(inputpath)
 
 # input test file - C:\Users\Ben\Downloads\Car.mp3
-# current output - (array([], dtype=float32), 48000)
+# current output - (array([], dtype=float32), 48000) - same issue with .wav file
